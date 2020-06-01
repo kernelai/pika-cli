@@ -18,7 +18,8 @@ static char *commandGroups[] = {
     "hyperloglog",
     "cluster",
     "geo",
-    "stream"
+    "stream",
+    "pkcluster"
 };
 
 struct commandHelp {
@@ -1162,7 +1163,42 @@ struct commandHelp {
     "destination numkeys key [key ...] [WEIGHTS weight] [AGGREGATE SUM|MIN|MAX]",
     "Add multiple sorted sets and store the resulting sorted set in a new key",
     4,
-    "2.0.0" }
+    "2.0.0" },
+    { "pkcluster info table",
+     "[tableID]",
+     "get table info at shardding mode",
+     15,
+     "5.0.9" },
+    { "pkcluster info slot",
+     "[tableID db]: [slotID]",
+     "get slot info at shardding mode",
+     15,
+     "5.0.9" },
+    { "pkcluster addtable",
+     "tableID slot-num",
+     "Create table at shardding mode",
+     15,
+     "5.0.9" },
+    { "pkcluster deltable",
+     "tableID",
+     "Del table at shardding mode",
+     15,
+     "5.0.9" },
+    { "pkcluster addslots",
+     "slot tableID",
+     "Add slot to the table at shardding mode",
+     15,
+     "5.0.9" },
+    { "pkcluster delslots",
+     "slot tableID",
+     "Del slot in the table at shardding mode",
+     15,
+     "5.0.9" },
+    { "pkcluster slotsslaveof",
+     "ip port slot [force] table",
+     "sync or desynchronized master at shardding mode",
+     15,
+     "5.0.9" }
 };
 
 #endif
